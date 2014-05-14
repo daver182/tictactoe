@@ -12,9 +12,9 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 	initBoard();
 
 	$scope.newMove = function(position){
-		if($scope.userTurn && !winner){
+		if($scope.userTurn && !winner && !positions[position].value){
 			$scope.squareContent[position] = 'X';
-			positions[position] = true;
+			positions[position] = {player: 'X', value: true};
 			$scope.userTurn = !$scope.userTurn;
 
 			checkBoard();
@@ -33,7 +33,7 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 					$scope.userTurn = !$scope.userTurn;
 				});
 			}else if(boardFull && !winner){
-				console.log('empate');
+				$scope.isDraw = true;
 			}
 			
 		}
@@ -47,6 +47,10 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 		//Inicializamos las variables
 		$scope.squareContent = [];
 		$scope.userTurn = true;
+		$scope.isWinner = false;
+		$scope.isDraw = false;
+
+		$scope.winnerPositions = [];
 
 		positions = [];
 		boardFull = false;
@@ -72,10 +76,14 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 	}
 
 	function checkWins(player){
-		//Comprobamos si un usuario gano
+		//Comprobamos si un usuario ganó
 		for (var i = 0; i < combinations.length; i++) {
 			if($scope.squareContent[combinations[i][0]] == player && $scope.squareContent[combinations[i][1]] == player && $scope.squareContent[combinations[i][2]] == player){
 				winner = player;
+				$scope.winnerPositions[combinations[i][0]] = true;
+				$scope.winnerPositions[combinations[i][1]] = true;
+				$scope.winnerPositions[combinations[i][2]] = true;
+				$scope.isWinner = true;
 				$scope.winner = player;
 				break;
 			}

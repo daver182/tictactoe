@@ -1,6 +1,28 @@
+body{
+	font-family: 'Indie Flower', cursive;
+}
+
+.container{
+	margin: 0 auto;
+	text-align: center;
+}
+
+h1{
+	margin-bottom: 5px;
+}
+
+.reset{
+	font-family: 'Indie Flower', cursive;
+	background: white;
+	font-size: 22px;
+	border: 1px solid;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
 .board{
 	margin: 0 auto;
-	width: 306px; /*Revisar*/
+	width: 307px;
 	height: 300px;
 }
 
@@ -8,23 +30,108 @@
 	float: left;
 	width: 100px;
 	height: 100px;
-	font-size: 100px;
+	font-size: 80px;
 	text-align: center;
+	cursor: pointer;
+
+	transition: color 0.5;
+
+	-webkit-border-image: url(border.png) 30 30 stretch;
+	-o-border-image: url(border.png) 30 30 stretch;
+	border-image: url(border.png) 30 30 stretch;
+
+	box-sizing: border-box;
+	margin-right: -4px;
 }
 
-.square.top{
-	border-bottom: 1px solid;
+.square.active{
+	background: #eee;
 }
 
-.square.left{
-	border-right: 1px solid;
-}
-
-.square.right{
-	border-left: 1px solid;
+.square.middle{
+	margin-top: -4px;
 }
 
 .square.bottom{
-	border-top: 1px solid;
+	margin-top: -4px;	
 }
 
+.square.top{
+	border-top: 0;
+}
+
+.square.bottom{
+	border-bottom: 0;
+}
+
+.square.left{
+	border-left: 0;
+}
+
+.square.right{
+	border-right: 0;
+}
+/*.square.top.left{
+	-webkit-border-image: url(border.png) 30 30 stretch;
+	-o-border-image: url(border.png) 30 30 stretch;
+	border-image: url(border.png) 30 30 stretch;
+
+	border-left: 0;
+	border-top: 0;
+}
+
+.square.top.right{
+	-webkit-border-image: url(border.png) 30 30 stretch;
+	-o-border-image: url(border.png) 30 30 stretch;
+	border-image: url(border.png) 30 30 stretch;
+
+	border-right: 0;
+	border-top: 0;
+}
+
+.square.middle.center{
+	-webkit-border-image: url(border.png) 30 30 stretch;
+	-o-border-image: url(border.png) 30 30 stretch;
+	border-image: url(border.png) 30 30 stretch;
+}
+
+.square.middle{
+	margin-top: -3px;
+}
+
+.square.bottom.left{
+	-webkit-border-image: url(border.png) 30 30 stretch;
+	-o-border-image: url(border.png) 30 30 stretch;
+	border-image: url(border.png) 30 30 stretch;
+
+	border-left: 0;
+	border-bottom: 0;
+}
+
+.square.bottom.right{
+	-webkit-border-image: url(border.png) 30 30 stretch;
+	-o-border-image: url(border.png) 30 30 stretch;
+	border-image: url(border.png) 30 30 stretch;
+
+	border-right: 0;
+	border-bottom: 0;
+}
+
+.square.bottom{
+	margin-top: -3px;
+}*/
+
+.winner{
+	font-size: 30px;
+	margin-top: 20px;
+}
+
+.winner span{
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.draw{
+	font-size: 30px;
+	margin-top: 20px;
+}

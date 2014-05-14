@@ -1,18 +1,23 @@
 extends layout
 
 block content
-	h1 Tic Tac Toe
-
-	div(ng-controller="BoardCtrl")
-		button(ng-click="reset()") Reiniciar juego
-		{{winner}}
+	div.container(ng-controller="BoardCtrl")
+		h1 Tic Tac Toe
+		button.reset(ng-click="reset()") Reiniciar juego
+		
 		div.board
-			div.square.top.left(ng-click="newMove(0)") {{squareContent[0]}}
-			div.square.top.center(ng-click="newMove(1)") {{squareContent[1]}}
-			div.square.top.right(ng-click="newMove(2)") {{squareContent[2]}}
-			div.square.middle.left(ng-click="newMove(3)") {{squareContent[3]}}
-			div.square.middle.center(ng-click="newMove(4)") {{squareContent[4]}}
-			div.square.middle.right(ng-click="newMove(5)") {{squareContent[5]}}
-			div.square.bottom.left(ng-click="newMove(6)") {{squareContent[6]}}
-			div.square.bottom.center(ng-click="newMove(7)") {{squareContent[7]}}
-			div.square.bottom.right(ng-click="newMove(8)") {{squareContent[8]}}
+			div.square.top.left(ng-click="newMove(0)", ng-class="{active: winnerPositions[0]}") {{squareContent[0]}}
+			div.square.top.center(ng-click="newMove(1)", ng-class="{active: winnerPositions[1]}") {{squareContent[1]}}
+			div.square.top.right(ng-click="newMove(2)", ng-class="{active: winnerPositions[2]}") {{squareContent[2]}}
+			div(style="clear: both")
+			div.square.middle.left(ng-click="newMove(3)", ng-class="{active: winnerPositions[3]}") {{squareContent[3]}}
+			div.square.middle.center(ng-click="newMove(4)", ng-class="{active: winnerPositions[4]}") {{squareContent[4]}}
+			div.square.middle.right(ng-click="newMove(5)", ng-class="{active: winnerPositions[5]}") {{squareContent[5]}}
+			div(style="clear: both")
+			div.square.bottom.left(ng-click="newMove(6)", ng-class="{active: winnerPositions[6]}") {{squareContent[6]}}
+			div.square.bottom.center(ng-click="newMove(7)", ng-class="{active: winnerPositions[7]}") {{squareContent[7]}}
+			div.square.bottom.right(ng-click="newMove(8)", ng-class="{active: winnerPositions[8]}") {{squareContent[8]}}
+			
+		div(style="clear: both")
+		div.winner(ng-show="isWinner") Ha ganado <span>{{winner}}</span>
+		div.draw(ng-show="isDraw") Ha habido un empate
