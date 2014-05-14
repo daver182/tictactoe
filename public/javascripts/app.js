@@ -7,12 +7,9 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 	var boardFull;
 	var combinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 
-	var winner;
-
 	initBoard();
-
 	$scope.newMove = function(position){
-		if($scope.userTurn && !winner && !positions[position].value){
+		if($scope.userTurn && !$scope.isWinner && !positions[position].value){
 			$scope.squareContent[position] = 'X';
 			positions[position] = {player: 'X', value: true};
 			$scope.userTurn = !$scope.userTurn;
@@ -20,7 +17,7 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 			checkBoard();
 			checkWins('X');
 
-			if(!boardFull && !winner){
+			if(!boardFull && !$scope.isWinner){
 				Server.play(positions, function(status, response){
 					if(status === 'success'){
 						$scope.squareContent[response.position] = 'O';
@@ -32,7 +29,7 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 					
 					$scope.userTurn = !$scope.userTurn;
 				});
-			}else if(boardFull && !winner){
+			}else if(boardFull && !$scope.isWinner){
 				$scope.isDraw = true;
 			}
 			
@@ -49,12 +46,11 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 		$scope.userTurn = true;
 		$scope.isWinner = false;
 		$scope.isDraw = false;
-
+		
 		$scope.winnerPositions = [];
 
 		positions = [];
 		boardFull = false;
-		winner = false
 		
 		//Inicializamos los arreglos de las posiciones
 		for (var i = 0; i < 9; i++) {
@@ -79,7 +75,6 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 		//Comprobamos si un usuario ganó
 		for (var i = 0; i < combinations.length; i++) {
 			if($scope.squareContent[combinations[i][0]] == player && $scope.squareContent[combinations[i][1]] == player && $scope.squareContent[combinations[i][2]] == player){
-				winner = player;
 				$scope.winnerPositions[combinations[i][0]] = true;
 				$scope.winnerPositions[combinations[i][1]] = true;
 				$scope.winnerPositions[combinations[i][2]] = true;
