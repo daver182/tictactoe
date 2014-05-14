@@ -1,8 +1,30 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.board{
+	margin: 0 auto;
+	width: 306px; /*Revisar*/
+	height: 300px;
 }
 
-a {
-  color: #00B7FF;
+.square{
+	float: left;
+	width: 100px;
+	height: 100px;
+	font-size: 100px;
+	text-align: center;
 }
+
+.square.top{
+	border-bottom: 1px solid;
+}
+
+.square.left{
+	border-right: 1px solid;
+}
+
+.square.right{
+	border-left: 1px solid;
+}
+
+.square.bottom{
+	border-top: 1px solid;
+}
+

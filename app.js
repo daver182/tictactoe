@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
@@ -29,7 +24,29 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.post('/play', function(req, res){
+	var positions = req.body.positions;
+	var newPosition;
+	var board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+
+	while(!newPosition){
+		var position = board[Math.floor(Math.random()*board.length)];
+
+		console.log(position)
+		console.log(positions[position])
+		
+		if(!positions[position]){
+			newPosition = position;
+			positions[position] = true;
+		}
+	}
+
+	console.log(newPosition)
+	setTimeout(function(){
+		res.json({position: newPosition, positions: positions});
+	}, 500);
+});
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

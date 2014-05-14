@@ -1,7 +1,10 @@
-doctype 5
+doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src="/components/angular/angular.min.js")
+		script(src="javascripts/app.js")
+	body(ng-app="tictactoe")
+		block content
+

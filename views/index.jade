@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1 Tic Tac Toe
+
+	div(ng-controller="BoardCtrl")
+		button(ng-click="reset()") Reiniciar juego
+		{{winner}}
+		div.board
+			div.square.top.left(ng-click="newMove(0)") {{squareContent[0]}}
+			div.square.top.center(ng-click="newMove(1)") {{squareContent[1]}}
+			div.square.top.right(ng-click="newMove(2)") {{squareContent[2]}}
+			div.square.middle.left(ng-click="newMove(3)") {{squareContent[3]}}
+			div.square.middle.center(ng-click="newMove(4)") {{squareContent[4]}}
+			div.square.middle.right(ng-click="newMove(5)") {{squareContent[5]}}
+			div.square.bottom.left(ng-click="newMove(6)") {{squareContent[6]}}
+			div.square.bottom.center(ng-click="newMove(7)") {{squareContent[7]}}
+			div.square.bottom.right(ng-click="newMove(8)") {{squareContent[8]}}
