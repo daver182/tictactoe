@@ -8,10 +8,20 @@ Tic Tac Toe game, made with:
 
 ## Install
 
-npm install
+Server-side dependencies
 
-bower install
+```
+	npm install
+```
+
+Client-side dependencies
+
+```
+	bower install
+```
 
 ## Run
 
-node app
+```
+	node app
+```
