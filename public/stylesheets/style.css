@@ -34,9 +34,13 @@ h1{
 	text-align: center;
 	cursor: pointer;
 
-	transition: color 0.5;
+	-webkit-transition: color 0.5s;
+	-moz-transition: color 0.5s;
+	-o-transition: color 0.5s;
+	transition: color 0.5s;
 
 	-webkit-border-image: url(border.png) 30 30 stretch;
+	-moz-border-image: url(border.png) 30 30 stretch;
 	-o-border-image: url(border.png) 30 30 stretch;
 	border-image: url(border.png) 30 30 stretch;
 
