@@ -71,55 +71,6 @@ h1{
 .square.right{
 	border-right: 0;
 }
-/*.square.top.left{
-	-webkit-border-image: url(border.png) 30 30 stretch;
-	-o-border-image: url(border.png) 30 30 stretch;
-	border-image: url(border.png) 30 30 stretch;
-
-	border-left: 0;
-	border-top: 0;
-}
-
-.square.top.right{
-	-webkit-border-image: url(border.png) 30 30 stretch;
-	-o-border-image: url(border.png) 30 30 stretch;
-	border-image: url(border.png) 30 30 stretch;
-
-	border-right: 0;
-	border-top: 0;
-}
-
-.square.middle.center{
-	-webkit-border-image: url(border.png) 30 30 stretch;
-	-o-border-image: url(border.png) 30 30 stretch;
-	border-image: url(border.png) 30 30 stretch;
-}
-
-.square.middle{
-	margin-top: -3px;
-}
-
-.square.bottom.left{
-	-webkit-border-image: url(border.png) 30 30 stretch;
-	-o-border-image: url(border.png) 30 30 stretch;
-	border-image: url(border.png) 30 30 stretch;
-
-	border-left: 0;
-	border-bottom: 0;
-}
-
-.square.bottom.right{
-	-webkit-border-image: url(border.png) 30 30 stretch;
-	-o-border-image: url(border.png) 30 30 stretch;
-	border-image: url(border.png) 30 30 stretch;
-
-	border-right: 0;
-	border-bottom: 0;
-}
-
-.square.bottom{
-	margin-top: -3px;
-}*/
 
 .winner{
 	font-size: 30px;
