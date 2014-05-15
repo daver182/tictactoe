@@ -7,6 +7,7 @@ var app = angular.module('tictactoe', []);
 angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 	var positions;
 	var boardFull;
+	//Todas las combinaciones ganadoras
 	var combinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 
 	initBoard();
@@ -25,11 +26,11 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 						$scope.squareContent[response.position] = 'O';
 						checkWins('O');
 						positions = response.positions;
+
+						$scope.userTurn = !$scope.userTurn;
 					}else{
 						alert('Ocurrió un error al intentar conectarse con el servidor, reinicie el juego.')
 					}
-					
-					$scope.userTurn = !$scope.userTurn;
 				});
 			}else if(boardFull && !$scope.isWinner){
 				$scope.isDraw = true;
