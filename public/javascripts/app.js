@@ -1,5 +1,7 @@
 'use strict';
 
+window.path = document.querySelector('svg > path');
+
 var app = angular.module('tictactoe', []);
 
 angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
@@ -46,6 +48,7 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 		$scope.userTurn = true;
 		$scope.isWinner = false;
 		$scope.isDraw = false;
+		$scope.lineClass = false;
 		
 		$scope.winnerPositions = [];
 
@@ -80,16 +83,19 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 				$scope.winnerPositions[combinations[i][2]] = true;
 				$scope.isWinner = true;
 				$scope.winner = player;
-				break;
+
+				$scope.lineClass = 'active combination-' + i;
 			}
 		}
+
+		
 	}
 });
 
 angular.module('tictactoe').service('Server', function Topic($http) {
 	return {
 		play: function(positions, fn){
-			$http({method: 'POST', url: '/play', data: {positions: positions, }}).
+			$http({method: 'POST', url: '/api/1/movement', data: {positions: positions, }}).
 			success(function(data, status, headers, config) {
 				fn('success', data);
 			}).

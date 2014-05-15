@@ -3,12 +3,13 @@ body{
 }
 
 .container{
+	position: relative;
 	margin: 0 auto;
 	text-align: center;
 }
 
 h1{
-	margin-bottom: 5px;
+	margin-bottom: 70px;
 }
 
 .reset{
@@ -17,13 +18,90 @@ h1{
 	font-size: 22px;
 	border: 1px solid;
 	border-radius: 10px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
+
+	/*El boton se posiciona de forma absoluta porque la linea SVG que sobre el boton y no se puede acceder a él*/
+	position: absolute;
+	top: 50px;
+	z-index: 1000;
+	left: 330px;
 }
 
 .board{
+	position: relative;
 	margin: 0 auto;
 	width: 307px;
 	height: 300px;
+}
+
+.line{
+	visibility: hidden;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+}
+
+.line > svg > path{
+	-webkit-transition: stroke-dashoffset 1s ease-in-out;
+	-moz-transition: stroke-dashoffset 1s ease-in-out;
+	-o-transition: stroke-dashoffset 1s ease-in-out;
+	transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.line.active{
+	visibility: visible;
+}
+
+.line.active > svg > path{
+	stroke-dashoffset: 310;
+}
+
+.line.combination-0{
+	-webkit-transform: rotate(90deg);
+	top: -100px;
+	left: 0;
+}
+
+.line.combination-1{
+	-webkit-transform: rotate(90deg);
+	top: 0;
+	left: 0;
+}
+
+.line.combination-2{
+	-webkit-transform: rotate(90deg);
+	top: 100px;
+	left: 0;
+}
+
+.line.combination-3{
+	-webkit-transform: rotate(0deg);
+	top: 0;
+	left: -100px;
+}
+
+.line.combination-4{
+	-webkit-transform: rotate(0deg);
+	top: 0;
+	left: 0;
+}
+
+.line.combination-5{
+	-webkit-transform: rotate(0deg);
+	top: 0;
+	left: 100px;
+}
+
+.line.combination-6{
+	-webkit-transform: rotate(140deg);
+	top: 0;
+	left: 0;
+}
+
+.line.combination-7{
+	-webkit-transform: rotate(40deg);
+	top: 0;
+	left: 0;
 }
 
 .square{
