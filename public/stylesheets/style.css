@@ -23,9 +23,9 @@ h1{
 
 	/*El boton se posiciona de forma absoluta porque la linea SVG que sobre el boton y no se puede acceder a él*/
 	position: absolute;
-	top: 50px;
+	top: -60px;
 	z-index: 1000;
-	left: 330px;
+	left: 70px;
 }
 
 .reset:hover{
