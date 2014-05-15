@@ -20,7 +20,7 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 			checkWins('X');
 
 			if(!boardFull && !$scope.isWinner){
-				Server.play(positions, function(status, response){
+				Server.move(positions, function(status, response){
 					if(status === 'success'){
 						$scope.squareContent[response.position] = 'O';
 						checkWins('O');
@@ -94,7 +94,7 @@ angular.module('tictactoe').controller('BoardCtrl', function ($scope, Server){
 
 angular.module('tictactoe').service('Server', function Topic($http) {
 	return {
-		play: function(positions, fn){
+		move: function(positions, fn){
 			$http({method: 'POST', url: '/api/1/movement', data: {positions: positions, }}).
 			success(function(data, status, headers, config) {
 				fn('success', data);

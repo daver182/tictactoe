@@ -79,8 +79,6 @@ app.post('/api/1/movement', function(req, res){
 		
 
 		positions[newPosition] = {player: 'O', value: true};
-
-		//Timeout, para emular que el servidor esta pensando
 		res.json({position: newPosition, positions: positions});
 	}
 });
