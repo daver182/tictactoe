@@ -24,7 +24,11 @@ if ('development' == app.get('env')) {
 app.get('/', function(req, res){
 	res.render('index');
 });
-app.post('/play', function(req, res){
+//app.get('/api/1/movement/:id', function(req, res){});
+//app.put('/api/1/movement/:id', function(req, res){});
+//app.delete('/api/1/movement/:id', function(req, res){});
+
+app.post('/api/1/movement', function(req, res){
 	var positions = req.body.positions;
 	if(positions){
 		var newPosition;
@@ -77,9 +81,7 @@ app.post('/play', function(req, res){
 		positions[newPosition] = {player: 'O', value: true};
 
 		//Timeout, para emular que el servidor esta pensando
-		setTimeout(function(){
-			res.json({position: newPosition, positions: positions});
-		}, 500);
+		res.json({position: newPosition, positions: positions});
 	}
 });
 
